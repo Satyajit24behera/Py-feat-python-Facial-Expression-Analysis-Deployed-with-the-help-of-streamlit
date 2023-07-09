@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from feat import Detector
 import numpy as np
 
-st.image("/content/Py-feat-webapp/logo.png")
+st.image("/content/logo.png")
 detector = Detector(
     face_model="retinaface",
     landmark_model="mobilefacenet",
