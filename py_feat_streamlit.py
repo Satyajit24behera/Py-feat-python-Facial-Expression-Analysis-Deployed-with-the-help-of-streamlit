@@ -74,13 +74,16 @@ if source_index == 0:
         
   
         file_path = "output3t6.csv"
-      
+      # Replace with the actual path to your file
+    
+        # Display a link to download the file
         if st.button('Download File'):
             with open(file_path, 'rb') as file:
                 file_content = file.read()
             b64 = base64.b64encode(file_content).decode()
             href = f'<a href="data:file/txt;base64,{b64}" download="{file_path.split("/")[-1]}">Click here to download</a>'
             st.markdown(href, unsafe_allow_html=True)
+
                 
 elif source_index == 1:
     uploaded_file = st.sidebar.file_uploader("Upload a Video", type=['mp4', 'mpeg', 'mov'])
