@@ -71,7 +71,17 @@ if source_index == 0:
         for fig in figs:
             # Display the figure using Streamlit
             st.pyplot(fig)
-            
+        
+  
+        csv_path = "output3t6.csv"
+      
+        if st.button('Download File'):
+            with open(file_path, 'rb') as file:
+                file_content = file.read()
+            b64 = base64.b64encode(file_content).decode()
+            href = f'<a href="data:file/txt;base64,{b64}" download="{file_path.split("/")[-1]}">Click here to download</a>'
+            st.markdown(href, unsafe_allow_html=True)
+                
 elif source_index == 1:
     uploaded_file = st.sidebar.file_uploader("Upload a Video", type=['mp4', 'mpeg', 'mov'])
     
@@ -113,3 +123,11 @@ elif source_index == 1:
         axes = video_prediction.emotions.plot()         
        
         st.pyplot(plt)
+        csv_path = "output3t6.csv"
+  
+        if st.button('Download File'):
+            with open(file_path, 'rb') as file:
+                file_content = file.read()
+            b64 = base64.b64encode(file_content).decode()
+            href = f'<a href="data:file/txt;base64,{b64}" download="{file_path.split("/")[-1]}">Click here to download</a>'
+            st.markdown(href, unsafe_allow_html=True)
