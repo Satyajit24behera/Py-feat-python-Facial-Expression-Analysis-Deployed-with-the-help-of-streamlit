@@ -72,7 +72,7 @@ if source_index == 0:
             # Display the figure using Streamlit
             st.pyplot(fig)
              
-        file_path = "/content/py-feat/output3t6.csv"
+        file_path = "output3t6.csv"
  
         if st.button('Download File'):
             with open(file_path, 'rb') as file:
