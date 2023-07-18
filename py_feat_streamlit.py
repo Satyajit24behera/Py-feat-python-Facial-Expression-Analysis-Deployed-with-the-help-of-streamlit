@@ -7,9 +7,9 @@ import os
 from feat.utils.io import read_feat
 import matplotlib.pyplot as plt
 from feat import Detector
-import numpy as np
+import base64
 
-
+st.image('logo.png')
 detector = Detector(
     face_model="retinaface",
     landmark_model="mobilefacenet",
@@ -41,7 +41,7 @@ if source_index == 0:
         filename = os.path.basename(uploaded_file.name)
 
         # Specify the directory to save the image
-        save_directory = "/root"
+        save_directory = "C:\\Users\\Satyajit\\Downloads\\Documents\\New folder"
 
         # Save the image to the specified directory with the original filename
         image.save(os.path.join(save_directory, filename))
@@ -71,20 +71,16 @@ if source_index == 0:
         for fig in figs:
             # Display the figure using Streamlit
             st.pyplot(fig)
-        
-  
+             
         file_path = "output3t6.csv"
-      # Replace with the actual path to your file
-    
-        # Display a link to download the file
+ 
         if st.button('Download File'):
             with open(file_path, 'rb') as file:
                 file_content = file.read()
             b64 = base64.b64encode(file_content).decode()
             href = f'<a href="data:file/txt;base64,{b64}" download="{file_path.split("/")[-1]}">Click here to download</a>'
             st.markdown(href, unsafe_allow_html=True)
-
-                
+            
 elif source_index == 1:
     uploaded_file = st.sidebar.file_uploader("Upload a Video", type=['mp4', 'mpeg', 'mov'])
     
@@ -93,7 +89,7 @@ elif source_index == 1:
         filename = os.path.basename(uploaded_file.name)
 
         # Specify the directory to save the video
-        save_directory = "/root"
+        save_directory = "C:\\Users\\Satyajit\\Downloads\\Documents\\New folder"
 
         # Save the video to the specified directory with the original filename
         save_path = os.path.join(save_directory, filename)
@@ -126,8 +122,9 @@ elif source_index == 1:
         axes = video_prediction.emotions.plot()         
        
         st.pyplot(plt)
-        csv_path = "output3t6.csv"
-  
+        
+        file_path = "output3t6.csv"
+ 
         if st.button('Download File'):
             with open(file_path, 'rb') as file:
                 file_content = file.read()
