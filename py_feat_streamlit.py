@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from feat import Detector
 import base64
 
-st.image('logo.png')
+st.image("/content/py-feat/webapp/logo.png")
 detector = Detector(
     face_model="retinaface",
     landmark_model="mobilefacenet",
@@ -41,7 +41,7 @@ if source_index == 0:
         filename = os.path.basename(uploaded_file.name)
 
         # Specify the directory to save the image
-        save_directory = "C:\\Users\\Satyajit\\Downloads\\Documents\\New folder"
+        save_directory = "/root"
 
         # Save the image to the specified directory with the original filename
         image.save(os.path.join(save_directory, filename))
@@ -89,7 +89,7 @@ elif source_index == 1:
         filename = os.path.basename(uploaded_file.name)
 
         # Specify the directory to save the video
-        save_directory = "C:\\Users\\Satyajit\\Downloads\\Documents\\New folder"
+        save_directory = "/root"
 
         # Save the video to the specified directory with the original filename
         save_path = os.path.join(save_directory, filename)
